@@ -11,7 +11,7 @@ export default class CreateOrders1594077375371 implements MigrationInterface {
             type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
-            default: `uuid_generate_v4()`,
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'customer_id',
@@ -30,11 +30,11 @@ export default class CreateOrders1594077375371 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            name: 'OrderCustomer',
+            name: 'Customer',
             referencedTableName: 'customers',
             referencedColumnNames: ['id'],
             columnNames: ['customer_id'],
-            onDelete: 'CASCADE',
+            onDelete: 'SET NULL',
             onUpdate: 'CASCADE',
           },
         ],
